@@ -30,9 +30,9 @@ if (params.has('config')) {
 	INDEX = params.get("config")
 }
 // This is updated from packs/index.json
-let HOMESERVER_URL = "https://matrix-client.matrix.org"
+let HOMESERVER_URL = "https://YOUR.TLD"
 
-const makeThumbnailURL = mxc => `${HOMESERVER_URL}/_matrix/media/v3/thumbnail/${mxc.slice(6)}?height=128&width=128&method=scale`
+const makeThumbnailURL = mxc => `${HOMESERVER_URL}/_matrix/media/v3/download/${mxc.slice(6)}`
 
 // We need to detect iOS webkit because it has a bug related to scrolling non-fixed divs
 // This is also used to fix scrolling to sections on Element iOS
