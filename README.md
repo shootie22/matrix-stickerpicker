@@ -1,11 +1,11 @@
 # ~Enhanced Maunium sticker picker
 Bring your custom stickers into Element nicely.
 
-![[showcase.mp4]]
+https://github.com/user-attachments/assets/c8dbf68f-46b8-4996-87eb-103daf093da2
 ## What this fork brings
 This is based on [xz-dev's fork](https://github.com/xz-dev/stickerpicker) of the original [Maunium sticker picker](https://github.com/maunium/stickerpicker).
 
-Over xz-dev's fork, this contains the following changes:
+Over [xz-dev](https://github.com/xz-dev/)'s fork, this contains the following changes:
 - Animated thumbnails of stickers
 - Makes **mass-importing** of stickers easy with a script (hundreds or more)
 - Includes a script for **mass-setting the dimensions** of all stickers, or selected ones
@@ -44,24 +44,24 @@ You may want to use some of these tools to create a better sticker picking exper
 - `python rename.py` - I didn't want any numbers, prefixes or suffixes for my sticker names. use this if you don't want them either.
 ##### Serving the picker through Nginx/Apache
 6. Example Nginx config:
-```json
+```
 server {
-    listen 80;
-    server_name stickers.your.tld;
+	listen 80;
+	server_name stickers.your.tld;
 
 	// WARNING: careful here, only serve the web folder, NOT the whole git repo.
 	// otherwise you will also be serving your config.json which
 	// contains your account's access token.
-    root /var/www/stickers/web;
-    index index.html;
+	root /var/www/stickers/web;
+	index index.html;
 
-    location / {
-        try_files $uri $uri/ =404;
-    }
+	location / {
+		try_files $uri $uri/ =404;
+	}
 }
 ```
 6. Example Apache config:
-```json
+```
 <VirtualHost *:80>
     ServerAdmin admin@your.tld
     ServerName stickers.your.tld
@@ -134,7 +134,7 @@ You can check logs using `docker logs giphyproxy` to debug it if it doesn't work
 Once it works, it won't output anything and will simply keep running.
 ##### Enabling the gif button in the picker
 1. Go to `web/src/giphy.js`
-2. Give it your own API key (or leech off of Maunium's). You can generate one here
+2. Give it your own API key (or leech off of Maunium's). You can generate one [here](https://developers.giphy.com/dashboard/)
 3. Set the `GIPHY_MXC_PREFIX` of your server. It should be exactly what you set in Giphypicker's `server_name` field, prefixed by `mxc://`
 4. On line 9, in the giphyIsEnabled() function, remove `return false` and uncomment `//return GIPHY_API_KEY !== "" `:
 ```js
